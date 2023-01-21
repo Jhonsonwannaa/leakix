@@ -1,0 +1,23 @@
+
+
+import requests 
+import os
+
+os.chdir('/sdcard')
+
+for x in range(1,10):
+            headers = {
+            "api-key": "",
+            "Accept": "application/json"}
+            params = {
+            "page": f"{x}",
+            "q": f"+plugin:ApacheStatusHttpPlugin",
+            "scope": f"leak"}
+            req = requests.get('https://leakix.net/search', params=params, headers=headers) 
+            a = req.json()
+            aa = len(a)
+            for x in range(aa) :
+            	x1=a[x]
+            	xx = x1['host']
+            	xx1=x1['port']
+            	print('\033[92m'+xx+':'+xx1)
